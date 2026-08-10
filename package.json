@@ -1,0 +1,53 @@
+{
+  "name": "reese-astor",
+  "version": "1.0.0",
+  "description": "Conversion-optimized romance publishing site for Reese Astor — Golden Parachute (Hudson Dynasty Book 3).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:install": "playwright install --with-deps chromium",
+    "seed:catalog": "tsx scripts/seed-catalog.ts",
+    "import:covers": "tsx scripts/import-cover-assets.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReeseAstor/design.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ReeseAstor/design/issues"
+  },
+  "homepage": "https://github.com/ReeseAstor/design#readme",
+  "dependencies": {
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^6.9.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "next": "^16.3.0",
+    "next-sanity": "^13.3.1",
+    "posthog-js": "^1.415.1",
+    "posthog-node": "^5.48.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sanity": "^6.9.1",
+    "styled-components": "^6.5.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "dotenv": "^17.4.2",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  },
+  "private": true
+}

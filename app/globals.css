@@ -1,0 +1,148 @@
+@import 'tailwindcss';
+
+/*
+ * Hudson Dynasty design tokens.
+ *
+ * The palette is dark-first: the landing pages are read at night, on phones, and
+ * the charcoal ground makes the gold read as money rather than as decoration.
+ * Every pairing used for text below meets WCAG 2.2 AA at its rendered size.
+ */
+@theme {
+  --color-charcoal: #171717;
+  --color-ivory: #f5efe6;
+  --color-gold: #b8924a;
+  --color-burgundy: #6f1d2d;
+  --color-graphite: #2c2c2c;
+  --color-copper: #c47b45;
+  --color-softwhite: #faf8f4;
+
+  /* Tints derived from the tokens for borders, hovers and quiet surfaces. */
+  --color-gold-bright: #d8b26a;
+  --color-gold-muted: #8d6f38;
+  --color-ink-muted: #b9b1a4;
+  --color-line: #3a3a3a;
+
+  /*
+   * `--font-*-loaded` is supplied by next/font on <html>. The literal families
+   * that follow keep the design intact if the font file has not arrived yet, and
+   * the metric-adjusted fallback next/font generates keeps the swap from shifting
+   * the layout.
+   */
+  --font-display:
+    var(--font-display-loaded), 'Cormorant Garamond', 'Playfair Display', ui-serif, Georgia,
+    'Times New Roman', serif;
+  --font-body:
+    var(--font-body-loaded), 'Inter', 'Source Sans 3', 'Manrope', ui-sans-serif, system-ui,
+    -apple-system, 'Segoe UI', sans-serif;
+
+  --text-hook: clamp(1.75rem, 6.2vw, 2.75rem);
+  --text-display: clamp(2.25rem, 9vw, 4rem);
+  --text-section: clamp(1.5rem, 5vw, 2.25rem);
+}
+
+:root {
+  color-scheme: dark;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  /* Reserved height of the sticky mobile bar, so content can clear it. */
+  --sticky-bar-height: 5.25rem;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-charcoal);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/*
+ * Focus is drawn on the token gold at full strength against every surface the
+ * site uses, and is never removed — keyboard readers buy books too.
+ */
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-gold-bright);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* The one restrained accent treatment: a hairline gold rule under section eyebrows. */
+.rule-gold::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 1px;
+  margin-top: 0.75rem;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Tap targets: 44x44 CSS px minimum, per WCAG 2.2 Target Size (Minimum). */
+.tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal-in 420ms ease-out both;
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+ * The CSS-only development cover. It exists so a prelaunch page can show
+ * something considered instead of a broken image, and it is deliberately
+ * unmistakable for real cover art.
+ */
+.cover-placeholder {
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(184, 146, 74, 0.22), transparent 62%),
+    linear-gradient(160deg, var(--color-graphite) 0%, var(--color-charcoal) 58%, #0f0f0f 100%);
+  border: 1px solid rgba(184, 146, 74, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(245, 239, 230, 0.06),
+    0 18px 45px -22px rgba(0, 0, 0, 0.9);
+}

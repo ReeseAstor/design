@@ -1,0 +1,372 @@
+{
+  "site": {
+    "brand": "Reese Astor",
+    "productionBaseUrl": "https://reeseastor.com",
+    "existingPublicSite": "https://reeseastor.com/",
+    "legacyRepository": "https://github.com/ReeseAstor/Reese",
+    "legacyPreview": "https://reese-xi.vercel.app",
+    "primaryRoutes": {
+      "goldenParachute": "https://reeseastor.com/golden-parachute",
+      "metaForcedProximity": "https://reeseastor.com/gp/meta-forced-proximity",
+      "tiktokKai": "https://reeseastor.com/gp/tiktok-kai",
+      "bookbubBillionaire": "https://reeseastor.com/gp/bookbub-billionaire",
+      "newsletterReaders": "https://reeseastor.com/gp/newsletter",
+      "hudsonDynasty": "https://reeseastor.com/hudson-dynasty",
+      "privacy": "https://reeseastor.com/privacy",
+      "cookies": "https://reeseastor.com/cookies",
+      "contact": "https://reeseastor.com/contact"
+    }
+  },
+  "books": [
+    {
+      "title": "The Billionaire's One Night Stand",
+      "slug": "the-billionaires-one-night-stand",
+      "author": "Reese Astor",
+      "series": "Manhattan Money Kings",
+      "seriesOrder": 0,
+      "genre": "Billionaire Romance",
+      "formats": [
+        {
+          "format": "ebook",
+          "asin": "B0DSG7NKGP",
+          "amazonUrl": "https://www.amazon.com/dp/B0DSG7NKGP",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/815-iFRAlpL._SL1500_.jpg",
+          "sourceWidth": 999,
+          "sourceHeight": 1500,
+          "priceUsd": 0.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "audiobook",
+          "asin": "B0FXF34B46",
+          "amazonUrl": "https://www.amazon.com/dp/B0FXF34B46",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81oaDAdim3L._SL1500_.jpg",
+          "sourceWidth": 1500,
+          "sourceHeight": 1500,
+          "priceUsd": 3.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "paperback",
+          "asin": "B0DVH8RNK1",
+          "amazonUrl": "https://www.amazon.com/dp/B0DVH8RNK1",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/71b1pqSQ4NL._SL1500_.jpg",
+          "sourceWidth": 1000,
+          "sourceHeight": 1499,
+          "priceUsd": 9.99,
+          "kuEnabled": false
+        }
+      ],
+      "publicationStatus": "live"
+    },
+    {
+      "title": "The Billionaire's Executive Assistant",
+      "slug": "the-billionaires-executive-assistant",
+      "author": "Reese Astor",
+      "series": "Manhattan Money Kings",
+      "seriesOrder": 1,
+      "genre": "Billionaire Romance",
+      "formats": [
+        {
+          "format": "ebook",
+          "asin": "B0F2W8QL7S",
+          "amazonUrl": "https://www.amazon.com/dp/B0F2W8QL7S",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81n7gqi8zAL._SL1500_.jpg",
+          "sourceWidth": 994,
+          "sourceHeight": 1500,
+          "priceUsd": 3.99,
+          "kuEnabled": true
+        },
+        {
+          "format": "audiobook",
+          "asin": "B0GWK722LX",
+          "amazonUrl": "https://www.amazon.com/dp/B0GWK722LX",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81GIs9vuzQL._SL1500_.jpg",
+          "sourceWidth": 1500,
+          "sourceHeight": 1500,
+          "priceUsd": 13.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "paperback",
+          "asin": "B0F32RT9V8",
+          "amazonUrl": "https://www.amazon.com/dp/B0F32RT9V8",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/71EEwrtJzwL._SL1500_.jpg",
+          "sourceWidth": 1000,
+          "sourceHeight": 1499,
+          "priceUsd": 13.99,
+          "kuEnabled": false
+        }
+      ],
+      "publicationStatus": "live"
+    },
+    {
+      "title": "The Billionaire's Fake Wife",
+      "slug": "the-billionaires-fake-wife",
+      "author": "Reese Astor",
+      "series": "Manhattan Money Kings",
+      "seriesOrder": 2,
+      "genre": "Billionaire Romance",
+      "formats": [
+        {
+          "format": "ebook",
+          "asin": "B0FCCBNF8X",
+          "amazonUrl": "https://www.amazon.com/dp/B0FCCBNF8X",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81t+nGB-cNL._SL1500_.jpg",
+          "sourceWidth": 975,
+          "sourceHeight": 1500,
+          "priceUsd": 3.99,
+          "kuEnabled": true
+        },
+        {
+          "format": "audiobook",
+          "asin": "B0GWK27PX7",
+          "amazonUrl": "https://www.amazon.com/dp/B0GWK27PX7",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81Dqh0HnykL._SL1500_.jpg",
+          "sourceWidth": 1500,
+          "sourceHeight": 1500,
+          "priceUsd": 13.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "paperback",
+          "asin": "B0FD33W6H6",
+          "amazonUrl": "https://www.amazon.com/dp/B0FD33W6H6",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/61rli7w55tL._SL1500_.jpg",
+          "sourceWidth": 1000,
+          "sourceHeight": 1499,
+          "priceUsd": 13.99,
+          "kuEnabled": false
+        }
+      ],
+      "publicationStatus": "live"
+    },
+    {
+      "title": "The Billionaire's Baby Secret",
+      "slug": "the-billionaires-baby-secret",
+      "author": "Reese Astor",
+      "series": "Manhattan Money Kings",
+      "seriesOrder": 3,
+      "genre": "Billionaire Romance",
+      "formats": [
+        {
+          "format": "ebook",
+          "asin": "B0G12LBZ24",
+          "amazonUrl": "https://www.amazon.com/dp/B0G12LBZ24",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81hYkwGuvqL._SL1500_.jpg",
+          "sourceWidth": 971,
+          "sourceHeight": 1500,
+          "priceUsd": 3.99,
+          "kuEnabled": true
+        },
+        {
+          "format": "audiobook",
+          "asin": "B0GWK16XYG",
+          "amazonUrl": "https://www.amazon.com/dp/B0GWK16XYG",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81CjbufcOWL._SL1500_.jpg",
+          "sourceWidth": 1500,
+          "sourceHeight": 1500,
+          "priceUsd": 13.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "paperback",
+          "asin": "B0G4N8ZVL3",
+          "amazonUrl": "https://www.amazon.com/dp/B0G4N8ZVL3",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/61KQwHzuCNL._SL1500_.jpg",
+          "sourceWidth": 1000,
+          "sourceHeight": 1499,
+          "priceUsd": 13.99,
+          "kuEnabled": false
+        }
+      ],
+      "publicationStatus": "live"
+    },
+    {
+      "title": "The Billionaire's Forbidden Nanny",
+      "slug": "the-billionaires-forbidden-nanny",
+      "author": "Reese Astor",
+      "series": "Manhattan Money Kings",
+      "seriesOrder": 4,
+      "genre": "Billionaire Romance",
+      "formats": [
+        {
+          "format": "ebook",
+          "asin": "B0GDZ4T164",
+          "amazonUrl": "https://www.amazon.com/dp/B0GDZ4T164",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81Cdj2AkyyL._SL1500_.jpg",
+          "sourceWidth": 975,
+          "sourceHeight": 1500,
+          "priceUsd": 3.99,
+          "kuEnabled": true
+        },
+        {
+          "format": "audiobook",
+          "asin": "B0GWK1YQZZ",
+          "amazonUrl": "https://www.amazon.com/dp/B0GWK1YQZZ",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81JiPKyPJdL._SL1500_.jpg",
+          "sourceWidth": 1500,
+          "sourceHeight": 1500,
+          "priceUsd": 13.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "paperback",
+          "asin": "B0GMHN9PK2",
+          "amazonUrl": "https://www.amazon.com/dp/B0GMHN9PK2",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/612EJijg48L._SL1500_.jpg",
+          "sourceWidth": 1000,
+          "sourceHeight": 1499,
+          "priceUsd": 19.99,
+          "kuEnabled": false
+        }
+      ],
+      "publicationStatus": "live"
+    },
+    {
+      "title": "The First Acquisition",
+      "slug": "the-first-acquisition",
+      "author": "Reese Astor",
+      "series": "Hudson Dynasty",
+      "seriesOrder": 0,
+      "genre": "Billionaire Romance",
+      "formats": [
+        {
+          "format": "ebook",
+          "asin": "B0D82GWFD9",
+          "amazonUrl": "https://www.amazon.com/dp/B0D82GWFD9",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81VwCSpuUkL._SL1500_.jpg",
+          "sourceWidth": 972,
+          "sourceHeight": 1500,
+          "priceUsd": 0.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "audiobook",
+          "asin": "B0GWFWVF3B",
+          "amazonUrl": "https://www.amazon.com/dp/B0GWFWVF3B",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81j-5bUK2uL._SL1500_.jpg",
+          "sourceWidth": 1500,
+          "sourceHeight": 1500,
+          "priceUsd": 13.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "paperback",
+          "asin": "B0GWL7GC98",
+          "amazonUrl": "https://www.amazon.com/dp/B0GWL7GC98",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/71ZEkAKeqSL._SL1500_.jpg",
+          "sourceWidth": 971,
+          "sourceHeight": 1500,
+          "priceUsd": 9.99,
+          "kuEnabled": false
+        }
+      ],
+      "publicationStatus": "live"
+    },
+    {
+      "title": "Hostile Tender",
+      "slug": "hostile-tender",
+      "author": "Reese Astor",
+      "series": "Hudson Dynasty",
+      "seriesOrder": 1,
+      "genre": "Billionaire Romance",
+      "formats": [
+        {
+          "format": "ebook",
+          "asin": "B0H1F9PV97",
+          "amazonUrl": "https://www.amazon.com/dp/B0H1F9PV97",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81iGQzEnacL._SL1500_.jpg",
+          "sourceWidth": 970,
+          "sourceHeight": 1500,
+          "priceUsd": 4.99,
+          "kuEnabled": true
+        },
+        {
+          "format": "audiobook",
+          "asin": "B0H671DP6S",
+          "amazonUrl": "https://www.amazon.com/dp/B0H671DP6S",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81ZBXFLE+yL._SL1500_.jpg",
+          "sourceWidth": 1500,
+          "sourceHeight": 1500,
+          "priceUsd": 14.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "paperback",
+          "asin": "B0H1MFF5XG",
+          "amazonUrl": "https://www.amazon.com/dp/B0H1MFF5XG",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/71PVMbLOGgL._SL1500_.jpg",
+          "sourceWidth": 971,
+          "sourceHeight": 1500,
+          "priceUsd": 15.99,
+          "kuEnabled": false
+        }
+      ],
+      "publicationStatus": "live"
+    },
+    {
+      "title": "Poison Pill",
+      "slug": "poison-pill",
+      "author": "Reese Astor",
+      "series": "Hudson Dynasty",
+      "seriesOrder": 2,
+      "genre": "Billionaire Romance",
+      "formats": [
+        {
+          "format": "ebook",
+          "asin": "B0H53BP5S1",
+          "amazonUrl": "https://www.amazon.com/dp/B0H53BP5S1",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/818PdEVWgOL._SL1500_.jpg",
+          "sourceWidth": 970,
+          "sourceHeight": 1500,
+          "priceUsd": 4.99,
+          "kuEnabled": true
+        },
+        {
+          "format": "audiobook",
+          "asin": "B0H6KSLP1T",
+          "amazonUrl": "https://www.amazon.com/dp/B0H6KSLP1T",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/81H2DWDqefL._SL1500_.jpg",
+          "sourceWidth": 1500,
+          "sourceHeight": 1500,
+          "priceUsd": 14.99,
+          "kuEnabled": false
+        },
+        {
+          "format": "paperback",
+          "asin": "B0H67479F1",
+          "amazonUrl": "https://www.amazon.com/dp/B0H67479F1",
+          "coverSourceUrl": "https://m.media-amazon.com/images/I/71eW05DRmJL._SL1500_.jpg",
+          "sourceWidth": 971,
+          "sourceHeight": 1500,
+          "priceUsd": 15.99,
+          "kuEnabled": false
+        }
+      ],
+      "publicationStatus": "live"
+    },
+    {
+      "title": "Golden Parachute",
+      "slug": "golden-parachute",
+      "author": "Reese Astor",
+      "series": "Hudson Dynasty",
+      "seriesOrder": 3,
+      "genre": "Adult Contemporary Billionaire Romance",
+      "publicationStatus": "prelaunch",
+      "formats": [
+        {
+          "format": "ebook",
+          "asin": null,
+          "amazonUrl": null,
+          "amazonAttributionUrl": null,
+          "coverSourceUrl": null,
+          "sourceWidth": null,
+          "sourceHeight": null,
+          "priceUsd": 4.99,
+          "kuEnabled": true
+        }
+      ]
+    }
+  ]
+}

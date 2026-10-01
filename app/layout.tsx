@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { PostHogProvider } from '@/components/analytics/PostHogProvider';
 import { siteUrl } from '@/lib/config';
+import { JsonLd, personJsonLd } from '@/lib/seo/structured-data';
 import './globals.css';
 
 const display = Cormorant_Garamond({
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
+        <JsonLd data={personJsonLd()} />
         <PostHogProvider>{children}</PostHogProvider>
         <SpeedInsights />
       </body>

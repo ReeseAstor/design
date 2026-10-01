@@ -1,32 +1,35 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { BookCover } from '@/components/conversion/BookCover';
+import { FreeBookMagnet } from '@/components/site/FreeBookMagnet';
 import { SiteFooter } from '@/components/site/SiteFooter';
 import { SiteHeader } from '@/components/site/SiteHeader';
-import { getAllBooks, getHudsonDynastyBooks } from '@/lib/content/source';
-import {
-  GOLDEN_PARACHUTE_SLUG,
-  GP_BRAND_MESSAGE,
-  GP_HOOK_LINE_ONE,
-  GP_HOOK_LINE_TWO,
-  GP_POSITIONING_LINE,
-} from '@/lib/content/golden-parachute';
 import { findFormat } from '@/lib/amazon/destination';
+import {
+  FIRST_ACQUISITION_SLUG,
+  FIRST_ACQUISITION_TITLE,
+  MAGNET_EYEBROW,
+  MAGNET_HOOK,
+  MAGNET_PROMISE,
+} from '@/lib/content/magnet';
+import { getBookBySlug, getHudsonDynastyBooks } from '@/lib/content/source';
 
 export const metadata: Metadata = {
   title: 'Reese Astor — Contemporary Billionaire Romance',
   description:
-    'Reese Astor writes contemporary billionaire romance with real emotional stakes. Hudson Dynasty and Manhattan Money Kings.',
+    'Claim The First Acquisition free, then read the Hudson Dynasty in order. Contemporary billionaire romance by Reese Astor.',
   alternates: { canonical: '/' },
 };
 
 /**
- * The home page has one job: move a visitor to the Golden Parachute page. It is
- * not a shop window, and it does not compete with the conversion page.
+ * Home has one job: move a visitor into the free First Acquisition magnet
+ * (Start Here / BookFunnel). Competing purchase CTAs stay off this page.
  */
 export default async function HomePage() {
-  const [books, hudson] = await Promise.all([getAllBooks(), getHudsonDynastyBooks()]);
-  const goldenParachute = books.find((book) => book.slug === GOLDEN_PARACHUTE_SLUG) ?? null;
+  const [firstAcquisition, hudson] = await Promise.all([
+    getBookBySlug(FIRST_ACQUISITION_SLUG),
+    getHudsonDynastyBooks(),
+  ]);
 
   return (
     <>
@@ -35,11 +38,11 @@ export default async function HomePage() {
       <main id="main">
         <section className="px-5 py-16 sm:px-8 sm:py-24">
           <div className="mx-auto max-w-5xl lg:flex lg:items-center lg:gap-14">
-            {goldenParachute ? (
+            {firstAcquisition ? (
               <div className="mx-auto mb-10 w-[58%] max-w-[260px] lg:mx-0 lg:mb-0 lg:w-[300px] lg:shrink-0">
                 <BookCover
-                  book={goldenParachute}
-                  format={findFormat(goldenParachute, 'ebook')}
+                  book={firstAcquisition}
+                  format={findFormat(firstAcquisition, 'ebook')}
                   priority
                   sizes="(max-width: 640px) 58vw, 300px"
                 />
@@ -48,22 +51,21 @@ export default async function HomePage() {
 
             <div className="lg:flex-1">
               <p className="rule-gold text-[0.7rem] uppercase tracking-[0.3em] text-gold">
-                The new Hudson Dynasty novel
+                {MAGNET_EYEBROW}
               </p>
               <h1 className="mt-6 text-balance font-display text-[length:var(--text-hook)] leading-[1.12]">
-                <span className="block">{GP_HOOK_LINE_ONE}</span>
-                <span className="block">{GP_HOOK_LINE_TWO}</span>
+                {FIRST_ACQUISITION_TITLE}
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-[1.02rem] leading-relaxed text-ivory/85">
-                {GP_POSITIONING_LINE}
+                {MAGNET_HOOK}
+              </p>
+              <p className="mt-4 max-w-xl text-pretty text-[0.95rem] leading-relaxed text-ink-muted">
+                {MAGNET_PROMISE}
               </p>
 
-              <Link
-                href="/golden-parachute"
-                className="tap-target mt-8 inline-flex items-center justify-center rounded-sm bg-gold px-7 py-4 text-[0.95rem] font-semibold uppercase tracking-[0.14em] text-charcoal transition-colors duration-150 hover:bg-gold-bright motion-reduce:transition-none"
-              >
-                Read about Golden Parachute
-              </Link>
+              <div className="mt-8">
+                <FreeBookMagnet variant="hero" />
+              </div>
             </div>
           </div>
         </section>
@@ -75,13 +77,18 @@ export default async function HomePage() {
             </h2>
             <p className="mt-5 max-w-xl text-[1rem] leading-relaxed text-ivory/85">
               Four books about a family that treats affection like an acquisition — and the people
-              who refuse the terms.
+              who refuse the terms. Start free with Book 0.
             </p>
 
             <ul className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {hudson.map((book) => (
                 <li key={book.slug}>
-                  <Link href={`/books/${book.slug}`} className="group block">
+                  <Link
+                    href={
+                      book.slug === FIRST_ACQUISITION_SLUG ? '/start-here' : `/books/${book.slug}`
+                    }
+                    className="group block"
+                  >
                     <BookCover
                       book={book}
                       format={findFormat(book, 'ebook')}
@@ -91,7 +98,9 @@ export default async function HomePage() {
                       {book.title}
                     </p>
                     <p className="text-[0.75rem] uppercase tracking-[0.18em] text-ink-muted">
-                      Book {book.seriesOrder}
+                      {book.slug === FIRST_ACQUISITION_SLUG
+                        ? 'Free · Book 0'
+                        : `Book ${book.seriesOrder}`}
                     </p>
                   </Link>
                 </li>
@@ -99,17 +108,13 @@ export default async function HomePage() {
             </ul>
 
             <Link
-              href="/hudson-dynasty"
+              href="/start-here"
               className="tap-target mt-8 inline-flex items-center text-gold underline underline-offset-4 hover:text-gold-bright"
             >
-              Read the series in order
+              See the reading order
             </Link>
           </div>
         </section>
-
-        <p className="mx-auto max-w-2xl px-5 py-16 text-center font-display text-[1.35rem] leading-snug text-gold-bright sm:px-8">
-          {GP_BRAND_MESSAGE}
-        </p>
       </main>
 
       <SiteFooter />

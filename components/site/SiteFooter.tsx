@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FreeBookMagnet } from '@/components/site/FreeBookMagnet';
 
 const YEAR = new Date().getFullYear();
 
@@ -14,8 +15,19 @@ export function SiteFooter({ minimal = false }: { minimal?: boolean }) {
           <nav aria-label="Footer" className="mb-8">
             <ul className="flex flex-wrap gap-x-6 gap-y-3 text-[0.85rem] text-ink-muted">
               <li>
+                <FreeBookMagnet variant="footer" />
+              </li>
+              <li>
                 <Link href="/books" className="tap-target inline-flex items-center hover:text-gold">
                   All books
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/booklist"
+                  className="tap-target inline-flex items-center hover:text-gold"
+                >
+                  Booklist
                 </Link>
               </li>
               <li>

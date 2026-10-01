@@ -45,6 +45,34 @@ export function isPostHogConfigured(): boolean {
   return posthogConfig.key.trim().length > 0;
 }
 
+/**
+ * MailerLite (canonical ESP). Without MAILERLITE_API_TOKEN the newsletter API
+ * runs in mock mode and the build stays green.
+ */
+export const mailerliteConfig = {
+  apiToken: process.env.MAILERLITE_API_TOKEN ?? '',
+  baseUrl: process.env.MAILERLITE_API_BASE_URL ?? 'https://connect.mailerlite.com/api',
+  groups: {
+    default: process.env.MAILERLITE_GROUP_DEFAULT_ID ?? '',
+    hudsonDynasty: process.env.MAILERLITE_GROUP_HUDSON_DYNASTY_ID ?? '',
+    firstAcquisition: process.env.MAILERLITE_GROUP_FIRST_ACQUISITION_ID ?? '',
+    goldenParachute: process.env.MAILERLITE_GROUP_GOLDEN_PARACHUTE_ID ?? '',
+    bonusMorningAfter: process.env.MAILERLITE_GROUP_BONUS_MORNING_AFTER_ID ?? '',
+    sourceMeta: process.env.MAILERLITE_GROUP_SOURCE_META_ID ?? '',
+    sourceTiktok: process.env.MAILERLITE_GROUP_SOURCE_TIKTOK_ID ?? '',
+    sourceBookbub: process.env.MAILERLITE_GROUP_SOURCE_BOOKBUB_ID ?? '',
+    existingReader: process.env.MAILERLITE_GROUP_EXISTING_READER_ID ?? '',
+  },
+};
+
+export function isMailerLiteConfigured(): boolean {
+  return mailerliteConfig.apiToken.trim().length > 0;
+}
+
+/**
+ * @deprecated Kit is no longer the site ESP. Kept so existing env files do not
+ * crash imports; newsletter traffic goes to MailerLite.
+ */
 export const kitConfig = {
   apiKey: process.env.KIT_API_KEY ?? '',
   baseUrl: process.env.KIT_API_BASE_URL ?? 'https://api.kit.com/v4',
@@ -59,6 +87,7 @@ export const kitConfig = {
   },
 };
 
+/** @deprecated Prefer isMailerLiteConfigured. */
 export function isKitConfigured(): boolean {
   return kitConfig.apiKey.trim().length > 0;
 }

@@ -42,6 +42,9 @@ const nextConfig: NextConfig = {
       // The book everything points at.
       { source: '/golden-parachute.html', destination: '/golden-parachute', permanent: true },
       { source: '/series/hudson-dynasty', destination: '/hudson-dynasty', permanent: true },
+      // Canonical IA: free magnet entry points at Start Here.
+      { source: '/free-book', destination: '/start-here', permanent: true },
+      { source: '/freebook', destination: '/start-here', permanent: true },
     ];
   },
   async headers() {

@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { resolveTagIds, subscribeToKit } from '@/lib/kit/client';
+import { resolveGroupIds, subscribeToMailerLite } from '@/lib/mailerlite/client';
 import { normaliseSourceUrl, validateNewsletterPayload } from '@/lib/validation/newsletter';
 import { findCampaignById } from '@/lib/campaigns/registry';
 import { captureServerEvent } from '@/lib/posthog/server';
@@ -8,10 +8,10 @@ import { COOKIE_AMAZON_CLICK, COOKIE_ANON_ID, parseAmazonClickValue } from '@/li
 /**
  * POST /api/newsletter
  *
- * Validates, rejects without consent, screens the honeypot, writes to Kit V4,
- * applies source and interest tags, and captures a PII-free analytics event.
+ * Validates, rejects without consent, screens the honeypot, writes to MailerLite,
+ * applies source/interest groups, and captures a PII-free analytics event.
  *
- * The email address reaches Kit and nowhere else. It is never placed in an
+ * The email address reaches MailerLite and nowhere else. It is never placed in an
  * analytics property, a log line, or a response body.
  */
 
@@ -43,16 +43,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   const click = parseAmazonClickValue(request.cookies.get(COOKIE_AMAZON_CLICK)?.value);
 
-  const tagIds = resolveTagIds({
+  const groupIds = resolveGroupIds({
     trafficSource: definition?.trafficSource ?? null,
     bookInterest: payload.book_interest || '',
     offerId: payload.offer_id || '',
-    // A reader who has already clicked through is treated as an existing reader
-    // for segmentation. It is not treated as a purchase.
     isExistingReader: click !== null,
   });
 
-  const result = await subscribeToKit({
+  const result = await subscribeToMailerLite({
     email: payload.email,
     firstName: payload.first_name || undefined,
     fields: {
@@ -62,7 +60,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       bonus_offer: payload.offer_id || '',
       first_touch_url: sourceUrl,
     },
-    tagIds,
+    groupIds,
   });
 
   if (!result.ok) {
@@ -78,8 +76,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       traffic_source: definition?.trafficSource ?? null,
       offer_id: payload.offer_id || '',
       source_url: sourceUrl,
-      kit_mode: result.mode,
-      tags_applied: result.taggedCount,
+      mailerlite_mode: result.mode,
+      groups_applied: result.groupCount,
       capture_surface: 'server',
     },
   });
@@ -87,7 +85,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   return NextResponse.json(
     {
       ok: true,
-      message: 'You’re on the list. The bonus scene is on its way to your inbox.',
+      message: "You're on the list. Check your inbox for a confirmation from Reese.",
     },
     { status: 201 },
   );

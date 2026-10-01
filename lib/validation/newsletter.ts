@@ -2,7 +2,7 @@
  * Newsletter payload validation.
  *
  * Consent is not a checkbox we can infer. If `consent` is not literally `true`
- * the request is rejected before Kit is contacted.
+ * the request is rejected before MailerLite is contacted.
  */
 
 import { z } from 'zod';
@@ -71,7 +71,7 @@ export function validateNewsletterPayload(input: unknown): NewsletterValidation 
       ok: false,
       status: consentRejected ? 422 : 400,
       message: consentRejected
-        ? 'Please confirm you want Reese’s reader emails.'
+        ? "Please confirm you want Reese's reader emails."
         : 'Please check the details below.',
       fieldErrors,
     };

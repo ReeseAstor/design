@@ -2,13 +2,37 @@ import { absoluteUrl } from '@/lib/config';
 import type { Book, BookFormatRecord } from '@/lib/content/types';
 
 /**
- * Book and BreadcrumbList JSON-LD.
+ * Book, Person, and BreadcrumbList JSON-LD.
  *
  * `aggregateRating` and `review` are deliberately absent. Schema.org rating
  * markup is a factual claim to search engines, and no verified rating exists for
  * Golden Parachute — emitting one would be a structured-data lie, quite apart
  * from being a rich-results policy violation.
  */
+
+export function personJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Reese Astor',
+    url: absoluteUrl('/'),
+    jobTitle: 'Author',
+    description:
+      'USA Today bestselling author of contemporary billionaire romance: the Hudson Dynasty and Manhattan Money Kings series.',
+    email: 'info@reeseastor.com',
+    sameAs: [
+      'https://github.com/ReeseAstor',
+      'https://www.amazon.com/stores/Reese-Astor/author/',
+    ],
+    knowsAbout: [
+      'Contemporary romance',
+      'Billionaire romance',
+      'Hudson Dynasty',
+      'Manhattan Money Kings',
+    ],
+    genre: 'Romance',
+  };
+}
 
 export function bookJsonLd(book: Book, format: BookFormatRecord | null, canonicalPath: string) {
   const url = absoluteUrl(canonicalPath);

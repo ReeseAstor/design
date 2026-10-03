@@ -22,7 +22,7 @@ export default function ContactPage() {
         <p>
           <a
             href={`mailto:${EMAIL}`}
-            className="tap-target inline-flex items-center text-lg text-gold underline underline-offset-4 hover:text-gold-bright"
+            className="tap-target inline-flex items-center text-lg text-ink border-b border-gold no-underline hover:text-ink"
           >
             {EMAIL}
           </a>
@@ -32,21 +32,21 @@ export default function ContactPage() {
       <LegalSection heading="What to write about">
         <ul className="list-none space-y-3">
           <li>
-            <strong className="text-ivory">Reader questions</strong> — reading order, content notes,
+            <strong className="text-ink">Reader questions</strong> — reading order, content notes,
             or whether a particular book is right for you.
           </li>
           <li>
-            <strong className="text-ivory">Review copies and ARCs</strong> — include where you
+            <strong className="text-ink">Review copies and ARCs</strong> — include where you
             review and roughly how many romance titles you cover a month.
           </li>
           <li>
-            <strong className="text-ivory">Rights, translation and audio</strong> — please include
+            <strong className="text-ink">Rights, translation and audio</strong> — please include
             territory and format.
           </li>
           <li>
-            <strong className="text-ivory">Privacy requests</strong> — say what you would like seen,
+            <strong className="text-ink">Privacy requests</strong> — say what you would like seen,
             corrected or deleted, and it will be actioned and confirmed. See the{' '}
-            <Link href="/privacy" className="text-gold underline underline-offset-2">
+            <Link href="/privacy" className="text-ink border-b border-gold no-underline">
               privacy notice
             </Link>
             .

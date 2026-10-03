@@ -31,29 +31,35 @@ export default async function BooklistPage() {
     <>
       <SiteHeader />
 
-      <main id="main" className="px-5 py-14 sm:px-8">
-        <div className="mx-auto max-w-5xl">
-          <h1 className="font-display text-[length:var(--text-display)] leading-[1.02]">
+      <main id="main">
+        <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+          <h1 className="font-display text-[length:var(--text-display)] leading-[0.95] text-ink">
             Booklist
           </h1>
-          <p className="mt-4 max-w-2xl text-[1rem] leading-relaxed text-ivory/85">
+          <p className="mt-4 max-w-2xl text-[1rem] leading-[1.25] text-ink">
             Every Reese Astor title in one place. Prefer{' '}
-            <Link href="/books" className="text-gold underline underline-offset-4 hover:text-gold-bright">
+            <Link href="/books" className="border-b border-gold text-ink no-underline hover:border-ink">
               /books
             </Link>{' '}
             — same catalog.
           </p>
+        </div>
 
-          {[...bySeries.entries()].map(([series, seriesBooks]) => (
-            <section key={series} aria-labelledby={`series-${series}`} className="mt-14">
+        {[...bySeries.entries()].map(([series, seriesBooks], index) => (
+          <section
+            key={series}
+            aria-labelledby={`series-${series}`}
+            className={index % 2 === 1 ? 'border-t border-ink bg-paper' : 'border-t border-ink bg-canvas'}
+          >
+            <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
               <h2
                 id={`series-${series}`}
-                className="rule-gold text-[0.7rem] uppercase tracking-[0.3em] text-gold"
+                className="rule-gold font-sans text-[0.75rem] uppercase tracking-[0.14em] text-ink"
               >
                 {series}
               </h2>
 
-              <ul className="mt-7 grid grid-cols-2 gap-x-6 gap-y-9 sm:grid-cols-3 lg:grid-cols-4">
+              <ul className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3">
                 {seriesBooks.map((book) => (
                   <li key={book.slug}>
                     <Link
@@ -69,12 +75,12 @@ export default async function BooklistPage() {
                       <BookCover
                         book={book}
                         format={findFormat(book, 'ebook')}
-                        sizes="(max-width: 640px) 44vw, (max-width: 1024px) 30vw, 220px"
+                        sizes="(max-width: 640px) 44vw, (max-width: 1024px) 30vw, 280px"
                       />
-                      <p className="mt-3 font-display text-[1.05rem] leading-snug text-ivory group-hover:text-gold-bright">
+                      <p className="mt-3 font-display text-[1.125rem] leading-snug text-ink">
                         {book.title}
                       </p>
-                      <p className="text-[0.75rem] uppercase tracking-[0.18em] text-ink-muted">
+                      <p className="mt-1 font-sans text-[0.75rem] uppercase tracking-[0.12em] text-quiet">
                         {book.publicationStatus === 'prelaunch'
                           ? 'Coming soon'
                           : book.slug === FIRST_ACQUISITION_SLUG
@@ -85,9 +91,9 @@ export default async function BooklistPage() {
                   </li>
                 ))}
               </ul>
-            </section>
-          ))}
-        </div>
+            </div>
+          </section>
+        ))}
       </main>
 
       <SiteFooter />

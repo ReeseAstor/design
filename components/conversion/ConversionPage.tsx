@@ -97,6 +97,8 @@ export function ConversionPage({ landingPage: model }: { landingPage: Conversion
 
       <main
         id="main"
+        // Campaign pages keep their own ground. The catalog tokens do not apply here.
+        className="bg-charcoal text-ivory"
         // Bottom padding clears the sticky mobile bar plus the safe-area inset,
         // so the last section is never trapped underneath it.
         style={{ paddingBottom: model.purchaseAvailable ? STICKY_BAR_CLEARANCE : undefined }}

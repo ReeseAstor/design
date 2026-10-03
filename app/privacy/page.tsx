@@ -5,7 +5,7 @@ import { LegalPage, LegalSection } from '@/components/legal/LegalPage';
 export const metadata: Metadata = {
   title: 'Privacy Notice | Reese Astor',
   description:
-    'What Reese Astor collects, why, and how to have it removed — including newsletter consent, analytics, and Amazon links.',
+    'What Reese Astor collects, why, and how to have it removed - including newsletter consent, analytics, and Amazon links.',
   alternates: { canonical: '/privacy' },
 };
 
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
       <LegalSection heading="What the reader list collects">
         <p>
           If you ask for the bonus scene, we collect your email address, optionally your first name,
-          and the campaign, page and offer you came from. That data is stored with Kit, our email
+          and the campaign, page and offer you came from. That data is stored with MailerLite, our email
           provider, and is used to send the bonus scene and occasional emails about new releases.
         </p>
         <p>
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
         <p>
           Those events carry the campaign, the book, the traffic source, the placement of the button
           you clicked, and whether you were on a phone, tablet or desktop.{' '}
-          <strong className="text-ivory">
+          <strong className="text-ink">
             They never carry your email address, your name, the contents of a form, or anything
             about your health.
           </strong>{' '}
@@ -96,7 +96,7 @@ export default function PrivacyPage() {
 
       <LegalSection heading="Copyright and trademarks">
         <p>
-          All book text, cover art and site copy © Reese Astor. All rights reserved. Amazon, Kindle,
+          All book text, cover art and site copy (c) Reese Astor. All rights reserved. Amazon, Kindle,
           Kindle Unlimited and Audible are trademarks of Amazon.com, Inc. or its affiliates. This
           site is not endorsed by or affiliated with Amazon.
         </p>

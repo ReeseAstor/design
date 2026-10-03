@@ -70,12 +70,12 @@ export default function CookiesPage() {
             <tbody>
               {COOKIES.map((cookie) => (
                 <tr key={cookie.name} className="border-b border-line/60 align-top">
-                  <th scope="row" className="py-4 pr-4 font-mono text-[0.85rem] font-normal text-ivory">
+                  <th scope="row" className="py-4 pr-4 font-mono text-[0.85rem] font-normal text-ink">
                     {cookie.name}
                   </th>
-                  <td className="py-4 pr-4 text-ivory/85">{cookie.purpose}</td>
-                  <td className="py-4 pr-4 text-ivory/85">{cookie.contains}</td>
-                  <td className="py-4 text-ivory/85">{cookie.life}</td>
+                  <td className="py-4 pr-4 text-ink">{cookie.purpose}</td>
+                  <td className="py-4 pr-4 text-ink">{cookie.contains}</td>
+                  <td className="py-4 text-ink">{cookie.life}</td>
                 </tr>
               ))}
             </tbody>

@@ -4,6 +4,8 @@ test.describe('site routes and migration', () => {
   const ROUTES = [
     '/',
     '/books',
+    '/booklist',
+    '/start-here',
     '/hudson-dynasty',
     '/about',
     '/contact',
@@ -28,6 +30,7 @@ test.describe('site routes and migration', () => {
     ['/books.html', '/books'],
     ['/about.html', '/about'],
     ['/contact.html', '/contact'],
+    ['/free-book', '/start-here'],
   ] as const;
 
   for (const [from, to] of LEGACY) {

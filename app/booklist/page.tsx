@@ -6,15 +6,19 @@ import { SiteHeader } from '@/components/site/SiteHeader';
 import { findFormat } from '@/lib/amazon/destination';
 import { getAllBooks } from '@/lib/content/source';
 import { GOLDEN_PARACHUTE_SLUG } from '@/lib/content/golden-parachute';
+import { FIRST_ACQUISITION_SLUG } from '@/lib/content/magnet';
 
 export const metadata: Metadata = {
-  title: 'All Books | Reese Astor',
+  title: 'Booklist | Reese Astor',
   description:
-    'Every Reese Astor contemporary billionaire romance: the Hudson Dynasty and Manhattan Money Kings series.',
-  alternates: { canonical: '/books' },
+    'Reese Astor booklist: Hudson Dynasty and Manhattan Money Kings contemporary billionaire romance.',
+  alternates: { canonical: '/booklist' },
 };
 
-export default async function BooksPage() {
+/**
+ * Catalog alias for /books — same listing, IA-friendly /booklist path.
+ */
+export default async function BooklistPage() {
   const books = await getAllBooks();
   const bySeries = new Map<string, typeof books>();
 
@@ -27,12 +31,27 @@ export default async function BooksPage() {
     <>
       <SiteHeader />
 
-      <main id="main" className="px-5 py-14 sm:px-8">
-        <div className="mx-auto max-w-5xl">
-          <h1 className="font-display text-[length:var(--text-display)] leading-[0.95] text-ink">Books</h1>
+      <main id="main">
+        <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+          <h1 className="font-display text-[length:var(--text-display)] leading-[0.95] text-ink">
+            Booklist
+          </h1>
+          <p className="mt-4 max-w-2xl text-[1rem] leading-[1.25] text-ink">
+            Every Reese Astor title in one place. Prefer{' '}
+            <Link href="/books" className="border-b border-gold text-ink no-underline hover:border-ink">
+              /books
+            </Link>{' '}
+            — same catalog.
+          </p>
+        </div>
 
-          {[...bySeries.entries()].map(([series, seriesBooks]) => (
-            <section key={series} aria-labelledby={`series-${series}`} className="mt-14">
+        {[...bySeries.entries()].map(([series, seriesBooks], index) => (
+          <section
+            key={series}
+            aria-labelledby={`series-${series}`}
+            className={index % 2 === 1 ? 'border-t border-ink bg-paper' : 'border-t border-ink bg-canvas'}
+          >
+            <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
               <h2
                 id={`series-${series}`}
                 className="rule-gold font-sans text-[0.75rem] uppercase tracking-[0.14em] text-ink"
@@ -47,29 +66,34 @@ export default async function BooksPage() {
                       href={
                         book.slug === GOLDEN_PARACHUTE_SLUG
                           ? '/golden-parachute'
-                          : `/books/${book.slug}`
+                          : book.slug === FIRST_ACQUISITION_SLUG
+                            ? '/start-here'
+                            : `/books/${book.slug}`
                       }
                       className="group block"
                     >
-                      {/* Catalog covers stay lazy — only the active hero cover is preloaded. */}
                       <BookCover
                         book={book}
                         format={findFormat(book, 'ebook')}
-                        sizes="(max-width: 640px) 44vw, (max-width: 1024px) 30vw, 220px"
+                        sizes="(max-width: 640px) 44vw, (max-width: 1024px) 30vw, 280px"
                       />
                       <p className="mt-3 font-display text-[1.125rem] leading-snug text-ink">
                         {book.title}
                       </p>
                       <p className="mt-1 font-sans text-[0.75rem] uppercase tracking-[0.12em] text-quiet">
-                        {book.publicationStatus === 'prelaunch' ? 'Coming soon' : `Book ${book.seriesOrder}`}
+                        {book.publicationStatus === 'prelaunch'
+                          ? 'Coming soon'
+                          : book.slug === FIRST_ACQUISITION_SLUG
+                            ? 'Free · Book 0'
+                            : `Book ${book.seriesOrder}`}
                       </p>
                     </Link>
                   </li>
                 ))}
               </ul>
-            </section>
-          ))}
-        </div>
+            </div>
+          </section>
+        ))}
       </main>
 
       <SiteFooter />

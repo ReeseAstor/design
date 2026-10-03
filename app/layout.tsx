@@ -1,20 +1,16 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Inter } from 'next/font/google';
+import { Bodoni_Moda } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { PostHogProvider } from '@/components/analytics/PostHogProvider';
 import { siteUrl } from '@/lib/config';
+import { JsonLd, personJsonLd } from '@/lib/seo/structured-data';
 import './globals.css';
 
-const display = Cormorant_Garamond({
+const display = Bodoni_Moda({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
   variable: '--font-display-loaded',
-  display: 'swap',
-});
-
-const body = Inter({
-  subsets: ['latin'],
-  variable: '--font-body-loaded',
   display: 'swap',
 });
 
@@ -36,8 +32,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#171717',
-  colorScheme: 'dark',
+  themeColor: '#ffffff',
+  colorScheme: 'light',
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
@@ -45,14 +41,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="min-h-dvh bg-charcoal text-ivory antialiased">
+    <html lang="en" className={display.variable}>
+      <body className="min-h-dvh bg-canvas text-ink antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-ivory focus:px-4 focus:py-3 focus:text-charcoal focus:no-underline"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-none focus:bg-ink focus:px-4 focus:py-3 focus:text-canvas focus:no-underline"
         >
           Skip to content
         </a>
+        <JsonLd data={personJsonLd()} />
         <PostHogProvider>{children}</PostHogProvider>
         <SpeedInsights />
       </body>

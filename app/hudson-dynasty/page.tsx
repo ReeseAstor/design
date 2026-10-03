@@ -38,13 +38,13 @@ export default async function HudsonDynastyPage() {
       <main id="main">
         <section className="px-5 py-14 sm:px-8">
           <div className="mx-auto max-w-4xl">
-            <p className="rule-gold text-[0.7rem] uppercase tracking-[0.3em] text-gold">
+            <p className="rule-gold text-[0.7rem] uppercase tracking-[0.3em] text-ink">
               The series, in order
             </p>
             <h1 className="mt-6 text-balance font-display text-[length:var(--text-display)] leading-[1.02]">
               Hudson Dynasty
             </h1>
-            <p className="mt-6 max-w-2xl text-pretty text-[1.05rem] leading-relaxed text-ivory/85">
+            <p className="mt-6 max-w-2xl text-pretty text-[1.05rem] leading-relaxed text-ink">
               Every Hudson book stands alone with its own happily-ever-after. Read in order and the
               family debts compound — which is exactly what happens to Kai in Golden Parachute.
             </p>
@@ -69,20 +69,20 @@ export default async function HudsonDynastyPage() {
                   </div>
 
                   <div className="min-w-0 flex-1">
-                    <p className="text-[0.72rem] uppercase tracking-[0.24em] text-gold">
+                    <p className="text-[0.72rem] uppercase tracking-[0.24em] text-ink">
                       Book {book.seriesOrder}
                       {isCurrent ? ' · New' : ''}
                     </p>
-                    <h2 className="mt-2 font-display text-2xl leading-tight text-ivory">
+                    <h2 className="mt-2 font-display text-2xl leading-tight text-ink">
                       {book.title}
                     </h2>
                     {book.shortHook ? (
-                      <p className="mt-2 text-pretty text-[0.95rem] leading-relaxed text-ivory/80">
+                      <p className="mt-2 text-pretty text-[0.95rem] leading-relaxed text-ink">
                         {book.shortHook.split('\n')[0]}
                       </p>
                     ) : null}
 
-                    <p className="mt-3 text-[0.85rem] text-ink-muted">
+                    <p className="mt-3 text-[0.85rem] text-quiet">
                       {book.publicationStatus === 'prelaunch'
                         ? 'Coming soon'
                         : [price, ebook?.kuEnabled ? 'Kindle Unlimited' : null]
@@ -92,7 +92,7 @@ export default async function HudsonDynastyPage() {
 
                     <Link
                       href={isCurrent ? '/golden-parachute' : `/books/${book.slug}`}
-                      className="tap-target mt-3 inline-flex items-center text-gold underline underline-offset-4 hover:text-gold-bright"
+                      className="tap-target mt-3 inline-flex items-center text-ink border-b border-gold no-underline hover:text-ink"
                     >
                       {isCurrent ? 'See Golden Parachute' : `More about ${book.title}`}
                     </Link>

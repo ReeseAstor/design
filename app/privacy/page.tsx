@@ -51,7 +51,7 @@ export default function PrivacyPage() {
         <p>
           Those events carry the campaign, the book, the traffic source, the placement of the button
           you clicked, and whether you were on a phone, tablet or desktop.{' '}
-          <strong className="text-ivory">
+          <strong className="text-ink">
             They never carry your email address, your name, the contents of a form, or anything
             about your health.
           </strong>{' '}

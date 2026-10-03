@@ -68,12 +68,12 @@ export function BuyButton({
   };
 
   const base =
-    'tap-target inline-flex items-center justify-center rounded-sm px-6 py-4 text-center text-[0.95rem] font-semibold uppercase tracking-[0.14em] transition-colors duration-150 motion-reduce:transition-none';
+    'tap-target inline-flex items-center justify-center rounded-none px-6 py-4 text-center font-sans text-[0.875rem] font-normal transition-colors duration-150 motion-reduce:transition-none';
 
   const tones = {
     gold: 'bg-gold text-charcoal hover:bg-gold-bright active:bg-gold-bright',
     outline:
-      'border border-gold/70 bg-transparent text-gold-bright hover:bg-gold/12 active:bg-gold/20',
+      'rounded-none border border-gold bg-transparent text-current hover:border-ink',
   } as const;
 
   return (
@@ -88,7 +88,7 @@ export function BuyButton({
         {label}
       </a>
       {supportingLine ? (
-        <p className="mt-2.5 text-center text-sm text-ink-muted">{supportingLine}</p>
+        <p className="mt-2.5 text-center font-sans text-sm text-current">{supportingLine}</p>
       ) : null}
     </div>
   );

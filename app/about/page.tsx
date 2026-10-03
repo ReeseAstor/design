@@ -22,7 +22,7 @@ export default function AboutPage() {
             About Reese Astor
           </h1>
 
-          <div className="mt-7 space-y-5 text-pretty text-[1.05rem] leading-[1.75] text-ivory/85">
+          <div className="mt-7 space-y-5 text-pretty text-[1.05rem] leading-[1.75] text-ink">
             <p>
               Reese Astor writes contemporary romance about people with too much money and people
               with too little, and what happens when they want each other anyway.
@@ -39,14 +39,14 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <p className="mt-10 font-display text-[1.3rem] leading-snug text-gold-bright">
+          <p className="mt-10 font-display text-[1.3rem] leading-snug text-ink">
             {GP_BRAND_MESSAGE}
           </p>
 
           <p className="mt-10">
             <Link
               href="/golden-parachute"
-              className="tap-target inline-flex items-center text-gold underline underline-offset-4 hover:text-gold-bright"
+              className="tap-target inline-flex items-center text-ink border-b border-gold no-underline hover:text-ink"
             >
               Read about the new book, Golden Parachute
             </Link>

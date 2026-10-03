@@ -29,18 +29,18 @@ export default async function BooksPage() {
 
       <main id="main" className="px-5 py-14 sm:px-8">
         <div className="mx-auto max-w-5xl">
-          <h1 className="font-display text-[length:var(--text-display)] leading-[1.02]">Books</h1>
+          <h1 className="font-display text-[length:var(--text-display)] leading-[0.95] text-ink">Books</h1>
 
           {[...bySeries.entries()].map(([series, seriesBooks]) => (
             <section key={series} aria-labelledby={`series-${series}`} className="mt-14">
               <h2
                 id={`series-${series}`}
-                className="rule-gold text-[0.7rem] uppercase tracking-[0.3em] text-gold"
+                className="rule-gold font-sans text-[0.75rem] uppercase tracking-[0.14em] text-ink"
               >
                 {series}
               </h2>
 
-              <ul className="mt-7 grid grid-cols-2 gap-x-6 gap-y-9 sm:grid-cols-3 lg:grid-cols-4">
+              <ul className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3">
                 {seriesBooks.map((book) => (
                   <li key={book.slug}>
                     <Link
@@ -57,10 +57,10 @@ export default async function BooksPage() {
                         format={findFormat(book, 'ebook')}
                         sizes="(max-width: 640px) 44vw, (max-width: 1024px) 30vw, 220px"
                       />
-                      <p className="mt-3 font-display text-[1.05rem] leading-snug text-ivory group-hover:text-gold-bright">
+                      <p className="mt-3 font-display text-[1.125rem] leading-snug text-ink">
                         {book.title}
                       </p>
-                      <p className="text-[0.75rem] uppercase tracking-[0.18em] text-ink-muted">
+                      <p className="mt-1 font-sans text-[0.75rem] uppercase tracking-[0.12em] text-quiet">
                         {book.publicationStatus === 'prelaunch' ? 'Coming soon' : `Book ${book.seriesOrder}`}
                       </p>
                     </Link>

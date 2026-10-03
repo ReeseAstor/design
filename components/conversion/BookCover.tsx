@@ -40,7 +40,7 @@ export function BookCover({
 
   // The wrapper owns the aspect ratio so the box is laid out before the image
   // byte arrives — this is what keeps CLS at zero while the cover loads.
-  const frame = `relative overflow-hidden rounded-[3px] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.95)] ${className}`;
+  const frame = `relative overflow-hidden rounded-none shadow-none ${className}`;
 
   if (!src) {
     return (
@@ -50,14 +50,14 @@ export function BookCover({
         data-testid="cover-placeholder"
       >
         <div className="cover-placeholder flex h-full w-full flex-col items-center justify-center gap-3 px-5 text-center">
-          <span className="text-[0.6rem] uppercase tracking-[0.32em] text-gold">
+          <span className="text-[0.6rem] uppercase tracking-[0.32em] text-quiet">
             Cover coming soon
           </span>
-          <span className="font-display text-[clamp(1.35rem,5.4vw,1.9rem)] leading-[1.1] text-ivory">
+          <span className="font-display text-[clamp(1.35rem,5.4vw,1.9rem)] leading-[1.1] text-ink">
             {book.title}
           </span>
           <span className="h-px w-8 bg-gold/70" aria-hidden="true" />
-          <span className="text-[0.65rem] uppercase tracking-[0.28em] text-ink-muted">
+          <span className="text-[0.65rem] uppercase tracking-[0.28em] text-quiet">
             {book.author}
           </span>
         </div>

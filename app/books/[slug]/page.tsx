@@ -64,8 +64,6 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
     (format) => format.active && Boolean(format.amazonProductUrl),
   );
 
-  // The Kindle edition is what the sticky bar sells; the other formats stay in
-  // the list where a reader who wants them will look.
   const stickyFormat = purchasable.find((format) => format.format === 'ebook') ?? null;
 
   return (
@@ -97,19 +95,19 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
 
           <div className="lg:flex-1">
             {book.series ? (
-              <p className="text-[0.72rem] uppercase tracking-[0.24em] text-gold">
+              <p className="text-[0.72rem] uppercase tracking-[0.24em] text-ink">
                 {book.series} · Book {book.seriesOrder}
               </p>
             ) : null}
             <h1 className="mt-3 font-display text-[length:var(--text-section)] leading-tight">
               {book.title}
             </h1>
-            <p className="mt-1 text-sm text-ink-muted">{book.author}</p>
+            <p className="mt-1 text-sm text-quiet">{book.author}</p>
 
             {book.longBlurb.length > 0 ? (
               <div className="mt-6 space-y-4">
                 {book.longBlurb.map((paragraph, index) => (
-                  <p key={index} className="text-pretty leading-relaxed text-ivory/85">
+                  <p key={index} className="text-pretty leading-relaxed text-ink">
                     {paragraph}
                   </p>
                 ))}
@@ -129,7 +127,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
                     trafficSource="organic"
                     format={format.format}
                     intent={book.seriesOrder === 0 ? 'book0' : 'primary'}
-                    tone={format.format === 'ebook' ? 'gold' : 'outline'}
+                    tone="outline"
                     label={
                       formatPrice(format.priceUsd)
                         ? `${labelFor(format.format)} — ${formatPrice(format.priceUsd)}`
@@ -143,7 +141,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
               ))}
 
               {purchasable.length === 0 ? (
-                <p className="rounded-sm border border-gold/40 bg-graphite/60 p-5 text-[0.95rem] text-ivory/85">
+                <p className="border border-ink bg-paper p-5 text-[0.95rem] text-ink">
                   This title is not on sale yet.
                 </p>
               ) : null}

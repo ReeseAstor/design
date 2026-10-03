@@ -43,37 +43,37 @@ export default async function StartHerePage() {
       <SiteHeader />
 
       <main id="main">
-        <section className="px-5 py-14 sm:px-8 sm:py-20">
-          <div className="mx-auto flex max-w-5xl flex-col gap-10 lg:flex-row lg:items-center">
+        <section className="bg-canvas px-5 py-12 sm:px-8">
+          <div className="mx-auto flex max-w-5xl flex-col gap-10 lg:flex-row lg:items-end">
             {firstAcquisition ? (
-              <div className="mx-auto w-[52%] max-w-[240px] lg:mx-0 lg:w-[280px] lg:shrink-0">
+              <div className="mx-auto w-[52%] max-w-[240px] lg:mx-0 lg:w-[260px] lg:shrink-0">
                 <BookCover
                   book={firstAcquisition}
                   format={findFormat(firstAcquisition, 'ebook')}
                   priority
-                  sizes="(max-width: 640px) 52vw, 280px"
+                  sizes="(max-width: 640px) 52vw, 260px"
                 />
               </div>
             ) : null}
 
             <div className="lg:flex-1">
-              <p className="rule-gold text-[0.7rem] uppercase tracking-[0.3em] text-gold">
+              <p className="rule-gold font-sans text-[0.75rem] uppercase tracking-[0.14em] text-ink">
                 {MAGNET_EYEBROW}
               </p>
-              <h1 className="mt-6 text-balance font-display text-[length:var(--text-display)] leading-[1.05]">
+              <h1 className="mt-5 text-balance font-display text-[length:var(--text-display)] leading-[0.95] text-ink">
                 Start with {FIRST_ACQUISITION_TITLE}
               </h1>
-              <p className="mt-5 max-w-xl text-pretty text-[1.02rem] leading-relaxed text-ivory/85">
+              <p className="mt-5 max-w-xl text-pretty text-[1rem] leading-[1.25] text-ink">
                 {MAGNET_HOOK}
               </p>
-              <p className="mt-3 max-w-xl text-pretty text-[0.95rem] leading-relaxed text-ink-muted">
+              <p className="mt-3 max-w-xl text-pretty text-[1rem] leading-[1.25] text-quiet">
                 {MAGNET_PROMISE}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <FreeBookMagnet variant="hero" directClaim />
               </div>
-              <p className="mt-3 text-[0.82rem] text-ink-muted">
+              <p className="mt-3 font-sans text-[0.75rem] text-quiet">
                 Free instant download · Delivered by BookFunnel
               </p>
             </div>
@@ -82,21 +82,21 @@ export default async function StartHerePage() {
 
         <section
           aria-labelledby="reading-order-heading"
-          className="border-t border-line px-5 py-14 sm:px-8"
+          className="border-t border-ink bg-paper px-5 py-12 sm:px-8"
         >
           <div className="mx-auto max-w-4xl">
             <h2
               id="reading-order-heading"
-              className="rule-gold text-[0.7rem] uppercase tracking-[0.3em] text-gold"
+              className="rule-gold font-sans text-[0.75rem] uppercase tracking-[0.14em] text-ink"
             >
               Hudson Dynasty reading order
             </h2>
-            <p className="mt-5 max-w-2xl text-[1rem] leading-relaxed text-ivory/85">
+            <p className="mt-5 max-w-2xl text-[1rem] leading-[1.25] text-ink">
               Every Hudson book stands alone with its own happily-ever-after. Start free with Book
               0, then continue in order.
             </p>
 
-            <ol className="mt-10 space-y-8">
+            <ol className="mt-10 divide-y divide-ink border-t border-ink">
               {READING_ORDER.map((entry) => {
                 const book = bySlug.get(entry.slug);
                 const ebook = book ? findFormat(book, 'ebook') : null;
@@ -108,21 +108,21 @@ export default async function StartHerePage() {
                       : `/books/${entry.slug}`;
 
                 return (
-                  <li key={entry.slug} className="flex gap-5 sm:gap-8">
+                  <li key={entry.slug} className="flex gap-5 py-8 sm:gap-8">
                     {book ? (
                       <div className="w-20 shrink-0 sm:w-28">
                         <BookCover book={book} format={ebook} sizes="112px" />
                       </div>
                     ) : null}
                     <div className="min-w-0 flex-1">
-                      <p className="text-[0.72rem] uppercase tracking-[0.24em] text-gold">
+                      <p className="font-sans text-[0.75rem] uppercase tracking-[0.14em] text-quiet">
                         Book {entry.seriesOrder}
                         {entry.free ? ' · Free' : ''}
                       </p>
-                      <h3 className="mt-2 font-display text-2xl leading-tight text-ivory">
+                      <h3 className="mt-2 font-display text-[1.375rem] leading-[0.95] text-ink">
                         {entry.title}
                       </h3>
-                      <p className="mt-2 text-[0.9rem] text-ink-muted">{entry.note}</p>
+                      <p className="mt-2 text-[0.9375rem] leading-[1.25] text-quiet">{entry.note}</p>
                       {entry.free ? (
                         <div className="mt-4">
                           <FreeBookMagnet variant="inline" directClaim />
@@ -130,7 +130,7 @@ export default async function StartHerePage() {
                       ) : (
                         <Link
                           href={href}
-                          className="tap-target mt-3 inline-flex items-center text-gold underline underline-offset-4 hover:text-gold-bright"
+                          className="tap-target mt-3 inline-flex items-center border-b border-gold text-ink no-underline hover:border-ink"
                         >
                           More about {entry.title}
                         </Link>
